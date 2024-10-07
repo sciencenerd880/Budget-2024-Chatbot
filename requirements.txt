@@ -1,0 +1,10 @@
+#python-dotenv
+#langchain
+#openai
+chromadb
+openai
+python-dotenv
+langchain_community
+langchain_text_splitters
+pypdf
+streamlit

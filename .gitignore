@@ -8,3 +8,6 @@ config/config.yaml
 
 # Docker
 *.dockerignore
+
+# Ignore environment files
+.env
