@@ -14,8 +14,8 @@ from utils import get_collection, get_response
 load_dotenv()
 
 user_query = input("What do you want to know about the Budget Speech?\n\n")
-#collection = get_collection(collection_name='overall_semantic', CHROMA_PATH='chroma_db_semantic')
-collection = get_collection(collection_name='overall',CHROMA_PATH='chroma_db')
+collection = get_collection(collection_name='overall_semantic', CHROMA_PATH='chroma_db_semantic')
+#collection = get_collection(collection_name='overall',CHROMA_PATH='chroma_db')
 
 results = collection.query(
     query_texts=[user_query],

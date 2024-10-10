@@ -14,8 +14,13 @@ from utils import read_pdf_to_string
 import os
 from dotenv import load_dotenv
 
+from tqdm import tqdm
+
+
 # Step 1: Load environment variables for API key
 load_dotenv()
+
+print('Please wait to process')
 
 pdf_filename = 'overall'
 content = read_pdf_to_string('data/overall/{}.pdf'.format(pdf_filename))
@@ -41,12 +46,14 @@ metadata = []
 ids = []
 
 # Step 7: Process each chunked document and prepare for ChromaDB
-for i, chunk in enumerate(chunks):
+for i, chunk in enumerate(tqdm(chunks)):
     # Extract the content and metadata of each chunk
     documents.append(chunk.page_content)  # Get the chunked content (text)
     ids.append(f"ID_{i}")               # Generate a unique ID for each chunk
-    metadata.append(chunk.metadata)
-    
+    chunk_meta = chunk.metadata
+    chunk_meta['which_annex']  = 'Annex A'
+    metadata.append(chunk_meta)
+    #print(type(chunk.metadata)) 
 # Step 8: Insert the documents, metadata, and IDs into ChromaDB collection
 collection.upsert(
     documents=documents,  # List of chunked content
@@ -54,4 +61,4 @@ collection.upsert(
     ids=ids               # List of unique IDs for each chunk
 )
 
-print('Semantic chunking complete and added to ChromaDB (semantic_overall)')
+print('Semantic chunking complete and added to ChromaDB Collection (overall_semantic)')
