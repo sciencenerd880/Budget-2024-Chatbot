@@ -62,23 +62,24 @@ if prompt := st.chat_input("What do you want to know about the Budget Speech 202
     with st.chat_message("user", avatar=USER_AVATAR):
         st.markdown(prompt)
 
-    # RAG portion: Query ChromaDB and generate system prompt
-    results = collection.query(
-        query_texts=[prompt],
-        n_results=5
+# RAG portion: Query ChromaDB and generate system prompt
+results = collection.query(
+        query_texts=[str(prompt)],
+        n_results=2
     )
-
     # Format the system prompt with retrieved documents
-    system_prompt = """
+system_prompt = """
     You are a helpful assistant focused on answering questions about the Budget Speech 2024. You must only rely on the provided information (retrieved documents) to answer the user’s questions. Do not use your internal knowledge or make up answers.
     Your goal is to extract key details from the chromedb that directly answer the user’s question. If the answer is partially present, summarize the relevant parts of the provided data. If the data doesn't contain enough information, respond with: "I can’t answer based on the available data."
     --------------------
     The retrieved data from chromedb:
     """ + str(results['documents'])
+
         
     #comment this if i do not want this to appear as part of the Assistant's message
     #st.session_state.messages.append({"role": "assistant", "content": f"System Prompt: {system_prompt}"})
 
+print(system_prompt)
 with st.chat_message("assistant", avatar=BOT_AVATAR):
     message_placeholder = st.empty()
     
