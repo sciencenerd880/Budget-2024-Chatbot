@@ -4,6 +4,10 @@ from dotenv import load_dotenv
 
 import fitz
 
+import time
+
+import streamlit as st
+
 load_dotenv()
 
 def get_collection(collection_name="overall", CHROMA_PATH="chroma_db"):
@@ -50,3 +54,29 @@ def read_pdf_to_string(path):
         # Extract the text content from the current page and append it to the content string
         content += page.get_text()
     return content
+
+# Function to generate the chatbot response with annex links
+def stream_response_generator(text, annex_ref, annex_links):
+    text += "\nBudget 2024 Annex Reference:\n"
+    
+    annex_text = f"You can check out [{annex_ref[0]}]({annex_links[annex_ref[0]]}) for more information.\n"
+    text += annex_text
+
+    # To handle latex issue for $:
+    text = text.replace("$", "\$")
+
+    # Stream the text word by word
+    for word in text.split():
+        yield word + " "
+        time.sleep(0.015)
+        
+    # Function to stream the greetings message
+def stream_greeting_message(message):
+    with st.chat_message("assistant"):
+        message_placeholder = st.empty()
+        streamed_message = ""
+        for word in message.split():
+            word = " " +  word
+            streamed_message += word
+            #message_placeholder.markdown(streamed_message)
+            time.sleep(0.015)  # Simulate streaming delay
