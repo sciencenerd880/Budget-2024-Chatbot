@@ -37,8 +37,9 @@ elif st.session_state['page'] == "chat":
     # Streamed response emulator
     # Dictionary mapping annexes to their respective link
     annex_links = {
-        "Annex A": "https://www.mof.gov.sg/singaporebudget/budget-2024/budget-statement/a-introduction#Introduction",
-        "Annex F-2": "https://www.mof.gov.sg/docs/librariesprovider3/budget2024/download/pdf/annexf2.pdf"
+        "Overall Speech": "https://www.mof.gov.sg/singaporebudget/budget-2024/budget-statement/a-introduction#Introduction",
+        "Annex F-2": "https://www.mof.gov.sg/docs/librariesprovider3/budget2024/download/pdf/annexf2.pdf",
+        "":"s"
     }
     st.title("📊 Budget 2024 Bot")
 
@@ -71,7 +72,7 @@ elif st.session_state['page'] == "chat":
             # Construct the system prompt with user profile
             user_profile = st.session_state['user_profile']  # Access from session_state
             system_prompt = f"""
-            You are an AI assistant designed to provide accurate and helpful information about Singapore’s Budget Speech 2024. Your primary role is to help the public understand the details of the budget, answer questions regarding specific policies, schemes (such as the Majulah Package).
+            You are an AI assistant designed to provide accurate and helpful information about Singapore’s Budget Speech 2024. Your primary role is to help the public understand the details of the budget, answer questions regarding specific policies, schemes (such as the Majulah Package and Medisave Bonus). Provide the annex that was referenced from.
 
             ### The user profile is as follows:
             Age: {user_profile.age} years old
@@ -81,12 +82,29 @@ elif st.session_state['page'] == "chat":
             Number of Properties Owned: {user_profile.num_properties}
             
             ### Important Guidelines:
-            -Based on this user profile and the retrieved chunked information, tailor your responses to answer questions in step by step. Summarize when needed.
+            -Based on this user profile and the retrieved chunked information, answer the user query step by step.
+            -Do not get confused with one-time medisave bonus and medisave bonus; they are meant different things. One-time refers to the once off cash bonus.
             -Ensure it is relevant to the user's circumstances, particularly with respect to eligibility for government schemes and any potential benefits.
             -Ensure the streamlit response is well-formatted, using \n\n for new paragraphs, bullet points for lists, and bold text where appropriate.                   
             
             ### Retrieved chunked information from pdf:
             {results['documents']}
+            
+            ### Sample Outputs Formatting to Adhere:
+            "One line conclusion + Reasoning" 
+            Reference from: Annex F-3
+            
+            "One line conclusion + Reasoninge" 
+            Referfence from: Annex B-2
+            
+            "One line conclusion + Reasoning" 
+            Reference from: Annex C-5
+            
+            "One line conclusion + Reasoning" 
+            Reference from: Annex A-1
+            
+            "One line conclusion + Reasoning" 
+            Reference from: Annex F-3
             """  
             print(system_prompt)
             print()
