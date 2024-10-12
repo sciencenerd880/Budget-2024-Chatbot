@@ -66,7 +66,7 @@ def stream_response_generator(text, annex_ref, annex_links):
     text = text.replace("$", "\$")
 
     # Stream the text word by word
-    for word in text.split():
+    for word in text.split(" "):
         yield word + " "
         time.sleep(0.015)
         

@@ -11,3 +11,7 @@ config/config.yaml
 
 # Ignore environment files
 .env
+
+# Ignore ppt file
+.pptm
+.ppt

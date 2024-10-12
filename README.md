@@ -16,3 +16,8 @@ This is a chatbot application built using a Large Language Model (LLM) and Retri
 ├── requirements.txt        # Python dependencies for the project
 ├── README.md               # Project setup and instructions
 └── .gitignore              # Ignoring unnecessary files
+
+
+## How to run the docker
+docker build -t my-streamlit-app . --no-cache --progress=plain
+docker run -p 8501:8501 my-streamlit-app
