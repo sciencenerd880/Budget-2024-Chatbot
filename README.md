@@ -1,5 +1,4 @@
-# About HTX Budget-2024-Chatbot
-
+# 🚀 About HTX Budget-2024-Chatbot 🤖
 This is a chatbot application built using a Large Language Model (OpenAI GPT 4o) and Retrieval-Augmented Generation (RAG) to answer queries related to Singapore’s Finance Minister’s Budget 2024.
 
 Tech stack for Backend and Frontend and Deployment respectively: (i) `LangChain`, `ChromaDB`, `OpenAI API`,  (ii) `Streamlit`, (iii) `Docker`
