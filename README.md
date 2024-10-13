@@ -39,7 +39,7 @@ Once the documents are chunked, each chunk is passed through the text-embedding-
 -The generated embeddings are stored in ChromaDB, a specialized database designed for vector embeddings. This allows the chatbot to query and retrieve the most relevant chunks based on the user’s input, enabling dynamic response generation.
 
 ## 3.0 List of Prompts to Interact with LLM
-This chatbot is designed to handle a variety of queries related to Singapore's Budget 2024. Below is a list of sample prompts that the chatbot is expected to address:
+This chatbot is designed to handle a variety of queries related to Singapore's Budget 2024. Below is a list of sample prompts that the chatbot is expected to address
 
 <div align="center">
   <img src="data/images/main_.png" alt="Alt text for the image" width="600"/>
@@ -52,7 +52,6 @@ Let's consider John who is in his late 60s looking into how he can benefit from 
   <img src="data/images/main_1.png" alt="Alt text for the image" width="600"/>
 </div>
 Remarks: As we can see from here, the chatbot indeed provide the information such as the Age/Income level/Annual Residence Value which provided the answers about ESB Component within Majulah Package. 
-
 
 - **What are the key reasons for high inflation over the last two years?**
 <div align="center">
@@ -86,7 +85,7 @@ To build the Docker image for this Streamlit app, navigate to the directory cont
 docker build -t my-streamlit-app . --no-cache --progress=plain
 ```
 
-To run & open the Docker image for this Streamlit app, and run the following commands:
+To run & open the Docker image for this Streamlit app by exposing the port you want, and run the following commands:
 
 ```bash
 docker run -p 8501:8501 my-streamlit-app
@@ -97,7 +96,15 @@ Open the streamlit url using your local browser via:
 ```bash
 http://localhost:8501
 ```
+## 6.0 Bonus Features Section
+Chunking Strategies Exploration & Reasoning
+....
+- Annex Citation
+- Adaptive System Prompt from User Profile
+- Streaming effect on chat using 
 
-## Bonus Features (Planned/Completed)
+## Bonus Features (Completed)
 - ✅ **Chunking Strategies**: Comparison of various Chunking Strategies + Rationale for selecting final Approach
-- ✅ **Streaming effect on chat**: Chat Streaming Effect
+- ✅ **Annex Citation**: Cite the url links via few shot learnning strategy + post-processing
+- ✅ **Adaptive System Prompt from User Profile**: Tailoring response after comprehending the User Profile 
+- ✅ **Streaming effect on chat**: Chat Streaming Effect on Greetings by Assistant, Responses from Assistant, as well as User Query.
