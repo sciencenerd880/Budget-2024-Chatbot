@@ -12,7 +12,9 @@ import streamlit as st
 load_dotenv()
 
 def get_collection(collection_name="overall", CHROMA_PATH="chroma_db"):
-
+    # There are two collections/chroma_path: 
+    # (i) overall - which is chunked using recursive character, -> chroma_db
+    # (ii) overall semantic which is chunked using semantic, -> chroma_db_semantic
     chroma_client = chromadb.PersistentClient(path=CHROMA_PATH)
     collection = chroma_client.get_or_create_collection(name=collection_name)
     

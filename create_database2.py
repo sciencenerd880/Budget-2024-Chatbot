@@ -21,9 +21,8 @@ from tqdm import tqdm
 load_dotenv()
 
 print('Please wait to process')
-
-#pdf_filename = 'overall', 'majulah
-pdf_filename = 'majulah'
+print(os.getenv("OPENAI_API_KEY"))
+pdf_filename = 'assurancepackage_b1'
 content = read_pdf_to_string('data/overall/{}.pdf'.format(pdf_filename))
 #print(content)
 text_splitter = SemanticChunker(OpenAIEmbeddings(openai_api_key =os.getenv("OPENAI_API_KEY")), 
@@ -52,7 +51,7 @@ for i, chunk in enumerate(tqdm(chunks)):
     documents.append(chunk.page_content)  # Get the chunked content (text)
     ids.append(f"ID_{i}")               # Generate a unique ID for each chunk
     chunk_meta = chunk.metadata
-    chunk_meta['which_annex']  = 'Annex F-2'
+    chunk_meta['which_annex']  = 'Annex B-1'
     metadata.append(chunk_meta)
     #print(type(chunk.metadata)) 
 # Step 8: Insert the documents, metadata, and IDs into ChromaDB collection

@@ -72,6 +72,7 @@ elif st.session_state['page'] == "chat":
     annex_links = {
         "Annex F-2": "https://www.mof.gov.sg/docs/librariesprovider3/budget2024/download/pdf/annexf2.pdf",
         "Annex F-3": "https://www.mof.gov.sg/docs/librariesprovider3/budget2024/download/pdf/annexf3.pdf",
+        "Annex B-1": "https://www.mof.gov.sg/docs/librariesprovider3/budget2024/download/pdf/annexb1.pdf",
         "":"s"
     }
     st.title("📊 Budget 2024 Bot")
