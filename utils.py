@@ -3,6 +3,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 
 import fitz
+import re
 
 import time
 
@@ -19,7 +20,7 @@ def get_collection(collection_name="overall", CHROMA_PATH="chroma_db"):
 
 def get_response(client, system_prompt, user_query):
     response = client.chat.completions.create(
-    model="gpt-4o-mini", #gpt-4o
+    model="gpt-4o", #gpt-4o-mini
     messages = [
         {"role":"system","content":system_prompt},
         {"role":"user","content":user_query}    
@@ -55,20 +56,34 @@ def read_pdf_to_string(path):
         content += page.get_text()
     return content
 
-# Function to generate the chatbot response with annex links
-def stream_response_generator(text, annex_ref, annex_links):
-    #text += "\nBudget 2024 Annex Reference:\n"
-    
-    #annex_text = f"You can check out [{annex_ref[0]}]({annex_links[annex_ref[0]]}) for more information.\n"
-    #text += annex_text
 
-    # To handle latex issue for $:
+# Function to generate the chatbot response with annex links
+def stream_response_generator(text, annex_ref, annex_links):    
+    def insert_annex_url(response, annex_links):
+        # Find the annex reference in the response using regex
+        annex_match = re.search(r'Annex ([A-Z]-\d+)', response)
+
+        # If an annex is mentioned in the response
+        if annex_match:
+            annex_reference = f"Annex {annex_match.group(1)}"
+            
+            if annex_reference in annex_links:
+                annex_url = annex_links[annex_reference]
+                # Replace or append the clickable URL using Markdown
+                #response = response.replace(,f"[{annex_ref[0]}]({annex_links[annex_ref[0]]})")
+                response = response.replace(annex_reference, f"[{annex_reference}]({annex_url})")
+                #print(response)
+        return response
+    
+    text = insert_annex_url(text, annex_links)
+    # To handle latex issue for $
     text = text.replace("$", "\$")
 
     # Stream the text word by word
     for word in text.split(" "):
         yield word + " "
         time.sleep(0.015)
+        
         
     # Function to stream the greetings message
 def stream_greeting_message(message):
