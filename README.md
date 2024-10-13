@@ -86,13 +86,13 @@ To allow the app to access OpenAI's services, you'll need to add your API key to
 
 ## 5.0 Build & Run the Docker Image
 
-To build the Docker image for this Streamlit app, navigate to the directory containing the `Dockerfile` and run the following command:
+To build the Docker image for `my-streamlit-app`, navigate to the directory containing the `Dockerfile` and run the following command:
 
 ```bash
 docker build -t my-streamlit-app . --no-cache --progress=plain
 ```
 
-To run & open the Docker image for this Streamlit app by exposing the port you want, and run the following commands:
+To run & open the Docker image for `my-streamlit-app` by exposing the port you want, and run the following command:
 
 ```bash
 docker run -p 8501:8501 my-streamlit-app
