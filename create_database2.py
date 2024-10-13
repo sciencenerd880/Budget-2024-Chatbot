@@ -50,7 +50,7 @@ ids = []
 for i, chunk in enumerate(tqdm(chunks)):
     # Extract the content and metadata of each chunk
     documents.append(chunk.page_content)  # Get the chunked content (text)
-    ids.append(f"ID_{i}_majulah")               # Generate a unique ID for each chunk
+    ids.append(f"ID_{i}")               # Generate a unique ID for each chunk
     chunk_meta = chunk.metadata
     chunk_meta['which_annex']  = 'Annex F-2'
     metadata.append(chunk_meta)

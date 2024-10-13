@@ -85,13 +85,13 @@ def stream_response_generator(text, annex_ref, annex_links):
         time.sleep(0.015)
         
         
-    # Function to stream the greetings message
-def stream_greeting_message(message):
-    with st.chat_message("assistant"):
+# Function to stream a message
+def stream_message(role, message):
+    with st.chat_message(role):
         message_placeholder = st.empty()
         streamed_message = ""
+        # Simulate a typing effect by adding words one by one
         for word in message.split():
-            word = " " +  word
-            streamed_message += word
-            #message_placeholder.markdown(streamed_message)
-            time.sleep(0.015)  # Simulate streaming delay
+            streamed_message += word + " "
+            message_placeholder.markdown(streamed_message)
+            time.sleep(0.1)  # Adjust the sleep time to control the speed of the typing effect
