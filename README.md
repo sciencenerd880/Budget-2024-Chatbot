@@ -1,8 +1,7 @@
-# About HTX Budget-2024-Chatbot
+# 🚀 About HTX Budget-2024-Chatbot 🤖
+This is a chatbot application built using a OpenAI LLM/LMM and Retrieval-Augmented Generation (RAG) to answer queries related to Singapore’s Finance Minister’s Budget 2024.
 
-This is a chatbot application built using a Large Language Model (OpenAI GPT 4o) and Retrieval-Augmented Generation (RAG) to answer queries related to Singapore’s Finance Minister’s Budget 2024.
-
-Tech stack for Backend and Frontend respectively: (i) LangChain, ChromaDB, OpenAI API, (ii) Streamlit
+Tech stack for Backend and Frontend and Deployment respectively: (i) `LangChain`, `ChromaDB`, `OpenAI API`,  (ii) `Streamlit`, (iii) `Docker`
 
 Assumption Made: For this simulation, a Streamlit form was used to collect basic user information, such as age and income level, to demonstrate the interaction. In a real-world application, it would be recommended to integrate with services like Singpass to automatically retrieve relevant data from government agencies or statutory boards, such as CPF (e.g., Medisave balances) and IRAS (for income information), ensuring a seamless and accurate user experience.
 
@@ -19,7 +18,7 @@ In the context of a Budget 2024 use-case, implementing a Retrieval Augmented Gen
 ![Alt text for the image](data/images/RAG_diagram.png)
 These are the main components used:
 - Chroma_db / sql-lite
-- Semantic chunking using text-embedding-ada-002 embedding model || default breakpoint threshold type: percentile
+- Semantic chunking using `text-embedding-ada-002` embedding model || default breakpoint threshold type: percentile
 - OpenAI API
 - Streamlit
 - Curated designed System Prompt
@@ -41,7 +40,7 @@ python create_database2.py
 ```
 
 4. Embedding with text-embedding-ada-002
-Once the documents are chunked, each chunk is passed through the text-embedding-ada-002 model, which generates high-dimensional vector embeddings. These embeddings capture the semantic meaning of the text, which allows for efficient and accurate retrieval based on user queries.
+Once the documents are chunked, each chunk is passed through the `text-embedding-ada-002` model, which generates high-dimensional vector embeddings. These embeddings capture the semantic meaning of the text, which allows for efficient and accurate retrieval based on user queries.
 
 5. ChromaDB Storage
 -The generated embeddings are stored in ChromaDB, a specialized database designed for vector embeddings. This allows the chatbot to query and retrieve the most relevant chunks based on the user’s input, enabling dynamic response generation.
@@ -129,7 +128,7 @@ While using the chunk overlap will help to share some standard text with adjacen
 Feature #2: Annex Hyperlink Citation
 - ✅ **Meta Tagging**: Stores and retrieves metadata (such as annex references) in ChromaDB for PDF content.  
 - ✅ **LLM for Formatting**: Utilizes few-shot learning with an LLM to format the citations and hyperlinks correctly.  
-- ✅ **Post-Processing**: Uses regex-based matching and conditional replacing to embed the hyperlinks into the generated text. Implementation can be found more at utils.py
+- ✅ **Post-Processing**: Uses regex-based matching and conditional replacing to embed the hyperlinks into the generated text. Implementation can be found more at `utils.py`.
 
 Feature #3: Adaptive System Prompt from User Profile
 <div align="center">
@@ -139,7 +138,7 @@ Feature #3: Adaptive System Prompt from User Profile
 -  This system features an adaptive prompt mechanism that dynamically adjusts based on the user's session state, retrieving and storing essential user information such as age, income level, and other demographic data. By maintaining session state, the system personalizes responses and tailors the content to the user's profile, ensuring relevant information, such as eligibility. This approach will help in user experience by maintaining context across interactions.
 
 Feature #4: Streaming effect on chat
-- Refer to the demo for clearer demonstration on ASSISTANT/USER streaming of the responses
+- Refer to the demo for clearer demonstration on ASSISTANT/USER streaming of the responses. Refer to the youtube video here. 
 <div align="center">
   <a href="https://youtu.be/F-md5zcaPgw?si=ct6DqmS9NYlfb6PI">
     <img src="https://img.youtube.com/vi/F-md5zcaPgw/0.jpg" alt="Watch the Demo Video" style="width:50%;"/>
