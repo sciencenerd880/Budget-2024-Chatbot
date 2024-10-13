@@ -41,17 +41,26 @@ Once the documents are chunked, each chunk is passed through the text-embedding-
 ## 3.0 List of Prompts to Interact with LLM
 This chatbot is designed to handle a variety of queries related to Singapore's Budget 2024. Below is a list of sample prompts that the chatbot is expected to address:
 
-- **Am I eligible for the Majulah Package?**
+<div align="center">
+  <img src="data/images/main_.png" alt="Alt text for the image" width="600"/>
+</div>
+
+Let's consider John who is in his late 60s looking into how he can benefit from the Majulah Package. Deliberation of not providing other Basic Information (e.g. Medisave) but only Earn and Save Bonus (ESB) for this scenario. Hence, we expect that the chatbot should not answer anything about the Medisave or other components within the Majulah Package but only the ESB. https://www.mof.gov.sg/docs/librariesprovider3/budget2024/download/pdf/annexf2.pdf
+
+- **Am I eligible for the Majulah Package? and how much is it**
 <div align="center">
   <img src="data/images/main_1.png" alt="Alt text for the image" width="600"/>
 </div>
+Remarks: As we can see from here, the chatbot indeed provide the information such as the Age/Income level/Annual Residence Value which provided the answers about ESB Component within Majulah Package. 
+
 
 - **What are the key reasons for high inflation over the last two years?**
 <div align="center">
   <img src="data/images/main_2.png" alt="Alt text for the image" width="600"/>
 </div>
 
-- **Am I then eligible for Medisave Bonus?**
+
+- **I'm just curious what will be done in reducing my grandchild's fee in preschool?**
 <div align="center">
   <img src="data/images/main_3.png" alt="Alt text for the image" width="600"/>
 </div>
