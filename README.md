@@ -31,6 +31,14 @@ Illustration Diagram of the Preprocessing before the actual User Interaction
 
 2. Chunking Techniques
 -To make the documents searchable and improve response generation in the chatbot, the PDF content is divided into chunks using two methods (Recursive Character Chunking, Semantic Chunking).
+- This repo consists of the chromadb chunks. However, to scale this even further with recursive character chunking, you can use the following command after making the internal variable changes:
+```bash
+python create_database.py
+```
+- This repo consists of the chromadb chunks. However, to scale this even further with semantic chunking, you can use the following command after making the internal variable changes:
+```bash
+python create_database2.py
+```
 
 4. Embedding with text-embedding-ada-002
 Once the documents are chunked, each chunk is passed through the text-embedding-ada-002 model, which generates high-dimensional vector embeddings. These embeddings capture the semantic meaning of the text, which allows for efficient and accurate retrieval based on user queries.
