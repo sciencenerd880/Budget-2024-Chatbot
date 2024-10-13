@@ -138,7 +138,14 @@ Feature #3: Adaptive System Prompt from User Profile
 
 -  This system features an adaptive prompt mechanism that dynamically adjusts based on the user's session state, retrieving and storing essential user information such as age, income level, and other demographic data. By maintaining session state, the system personalizes responses and tailors the content to the user's profile, ensuring relevant information, such as eligibility. This approach will help in user experience by maintaining context across interactions.
 
-Feature #4: Streaming effect on chat using
+Feature #4: Streaming effect on chat
+- Refer to the demo for clearer demonstration on ASSISTANT/USER streaming of the responses
+<div align="center">
+  <a href="https://youtu.be/F-md5zcaPgw?si=ct6DqmS9NYlfb6PI">
+    <img src="https://img.youtube.com/vi/F-md5zcaPgw/0.jpg" alt="Watch the Demo Video" style="width:50%;"/>
+  </a>
+</div>
+
 
 ## Bonus Features (Completed)
 - ✅ **Chunking Strategies**: Comparison of various Chunking Strategies + Rationale for selecting final Approach
