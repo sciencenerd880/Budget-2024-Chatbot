@@ -10,8 +10,11 @@ config/config.yaml
 *.dockerignore
 
 # Ignore environment files
-.env
+#.env
 
 # Ignore ppt file
-.pptm
-.ppt
+*.pptm
+*.ppt
+
+# Ignore pem file
+*.pem
