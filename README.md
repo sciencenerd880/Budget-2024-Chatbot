@@ -151,8 +151,57 @@ Feature #4: Streaming effect on chat
   </a>
 </div>
 
+## 7.0 Deployment at AWS EC2
+
+Follow these steps to deploy the Streamlit app on an AWS EC2 instance. The deployment assumes you are using an Ubuntu EC2 instance.
+
+### 7.1 Prerequisites
+- AWS EC2 instance running Ubuntu (ensure security group allows inbound traffic to port e.g. 8501).
+- SSH access to the EC2 instance.
+- AWS EC2 Instance to be created
+
+### 7.2 Connect to Your EC2 Instance
+First, connect to your EC2 instance using SSH:
+
+```bash
+ssh -i /path/to/your-key.pem ubuntu@<your-ec2-public-ip>
+```
+
+### 7.3 Udate and Install Required Packages/Systems
+```bash
+sudo apt update
+sudo apt-get update
+sudo apt upgrade -y
+
+sudo apt install git curl unzip tar make sudo vim wget -y
+sudo apt install python3-pip
+```
+### 7.4  Git clone this repo
+```bash
+git clone https://github.com/sciencenerd880/Budget-2024-Chatbot.git
+```
+###7.5  Set up Virtual Environment & Create, Activate the venv in the project folder
+```bash
+sudo apt install python3-venv
+python3 -m venv venv
+source venv/bin/activate
+```
+
+###7.6 Install all the Project Dependencies
+```bash
+pip3 install -r requirements.txt
+```
+
+### Running the application is as easy as
+```bash
+python3 -m streamlit run streamlit_app.py
+```
+View the webpage via the InstanceDomain:PortNumber
+e.g. http://47.129.145.115:8501/
+where 8501 is the port that was set up
 
 ## Bonus Features (Completed)
+- ✅ **Deployment at AWS EC2**: Deployed the Streamlit App at AWS Cloud Service - EC2
 - ✅ **Chunking Strategies**: Comparison of various Chunking Strategies + Rationale for selecting final Approach
 - ✅ **Annex Hyperlink Citation**: Cite the url links via few shot learnning strategy + post-processing
 - ✅ **Adaptive System Prompt from User Profile**: Tailoring response after comprehending the User Profile 
