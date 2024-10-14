@@ -1,7 +1,7 @@
 # 🚀 About HTX Budget-2024-Chatbot 🤖
 This is a chatbot application built using a OpenAI LLM/LMM and Retrieval-Augmented Generation (RAG) to answer queries related to Singapore’s Finance Minister’s Budget 2024.
 
-Tech stack for Backend and Frontend and Deployment respectively: (i) `LangChain`, `ChromaDB`, `OpenAI API`,  (ii) `Streamlit`, (iii) `Docker`
+Tech stack for Backend and Frontend and Deployment respectively: (i) `LangChain`, `ChromaDB`, `OpenAI API`,  (ii) `Streamlit`, (iii) `Docker`, `AWS EC2`
 
 Assumption Made: For this simulation, a Streamlit form was used to collect basic user information, such as age and income level, to demonstrate the interaction. In a real-world application, it would be recommended to integrate with services like Singpass to automatically retrieve relevant data from government agencies or statutory boards, such as CPF (e.g., Medisave balances) and IRAS (for income information), ensuring a seamless and accurate user experience.
 
