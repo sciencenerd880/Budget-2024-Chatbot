@@ -1,0 +1,4 @@
+chatbot:
+  model: "gpt-4o-mini" # Chat PI model from OpenAI
+  max_tokens: 100         # You can adjust this as per the chatbot's requirements
+  chunk_size: 500                  # Size of chunks for document retrieval
