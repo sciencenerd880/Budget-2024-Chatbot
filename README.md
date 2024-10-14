@@ -75,11 +75,11 @@ Remarks: As we can see from here, the chatbot indeed provide the information suc
 ## 4.0 Add the OpenAI API Key to the .env File
 To allow the app to access OpenAI's services, you'll need to add your API key to an environment file in the same working directory:
 
-- Create a .env file in the same directory where your Dockerfile and requirements.txt are located (if the file doesn't already exist).
+- Create a `.env file` in the same directory where your Dockerfile and requirements.txt are located (if the file doesn't already exist).
 
-- Open the .env file with any text editor.
+- Open the `.env file` file with any text editor.
 
-- Add the following line to the .env file, replacing the example key with your actual OpenAI API key:
+- Add the following line to the `.env file` file, replacing the example key with your actual `OpenAI API Key`:
 ```bash
   OPENAI_API_KEY=my-api-key-here
 ```
@@ -91,12 +91,18 @@ To build the Docker image for `my-streamlit-app`, navigate to the directory cont
 ```bash
 docker build -t my-streamlit-app . --no-cache --progress=plain
 ```
+<div align="center">
+  <img src="data/images/docker_complete.png" alt="Alt text for the image" width="600"/>
+</div>
 
 To run & open the Docker image for `my-streamlit-app` by exposing the port you want, and run the following command:
 
 ```bash
 docker run -p 8501:8501 my-streamlit-app
 ```
+<div align="center">
+  <img src="data/images/docker_run.png" alt="Alt text for the image" width="600"/>
+</div>
 
 Double check using Docker Desktop on the image / streamlit app created:
 
