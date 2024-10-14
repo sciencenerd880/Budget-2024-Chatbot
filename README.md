@@ -199,6 +199,9 @@ python3 -m streamlit run streamlit_app.py
 View the webpage via the InstanceDomain:PortNumber
 e.g. http://47.129.145.115:8501/
 where 8501 is the port that was set up
+<div align="center">
+  <img src="data/images/successful_cloud_deployment.png" alt="Alt text for the image" width="800"/>
+</div>
 
 ## Bonus Features (Completed)
 - ✅ **Deployment at AWS EC2**: Deployed the Streamlit App at AWS Cloud Service - EC2
