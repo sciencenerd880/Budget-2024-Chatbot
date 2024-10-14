@@ -157,6 +157,7 @@ Feature #4: Streaming effect on chat
 </div>
 
 Follow these steps to deploy the Streamlit app on an AWS EC2 instance. The deployment assumes you are using an Ubuntu EC2 instance.
+For ease of access, you may visit the url here http://47.129.145.115:8501/.
 
 ### 7.1 Prerequisites
 - AWS EC2 instance running Ubuntu (ensure security group allows inbound traffic to port e.g. 8501).
@@ -183,14 +184,14 @@ sudo apt install python3-pip
 ```bash
 git clone https://github.com/sciencenerd880/Budget-2024-Chatbot.git
 ```
-###7.5  Set up Virtual Environment & Create, Activate the venv in the project folder
+### 7.5  Set up Virtual Environment & Create, Activate the venv in the project folder
 ```bash
 sudo apt install python3-venv
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-###7.6 Install all the Project Dependencies
+### 7.6 Install all the Project Dependencies
 ```bash
 pip3 install -r requirements.txt
 ```
