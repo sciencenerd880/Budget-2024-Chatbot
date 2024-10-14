@@ -152,6 +152,9 @@ Feature #4: Streaming effect on chat
 </div>
 
 ## 7.0 Deployment at AWS EC2
+<div align="center">
+  <img src="data/images/chat_success_cloud.png" alt="Alt text for the image" width="800"/>
+</div>
 
 Follow these steps to deploy the Streamlit app on an AWS EC2 instance. The deployment assumes you are using an Ubuntu EC2 instance.
 
