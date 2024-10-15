@@ -191,6 +191,7 @@ git clone https://github.com/sciencenerd880/Budget-2024-Chatbot.git
 ### 7.5  Set up Virtual Environment & Create, Activate the venv in the project folder
 ```bash
 sudo apt install python3-venv
+cd Budget-2024-Chatbot
 python3 -m venv venv
 source venv/bin/activate
 ```
@@ -222,6 +223,15 @@ where 8501 is the port that was set up
 <div align="center">
   <img src="data/images/successful_cloud_deployment.png" alt="Alt text for the image" width="800"/>
 </div>
+
+### For timeout/hang related issues:
+```bash
+ServerAliveInterval 50
+echo 'ClientAliveInterval 60' | sudo tee --append /etc/ssh/sshd_config
+logout //to disconnect
+```
+Then relogin by ssh into the instance and run the python streamlit app again should help.
+https://stackoverflow.com/questions/7210011/amazon-ec2-ssh-timeout-due-inactivity
 
 ## Bonus Features (Completed)
 - ✅ **Deployment at AWS EC2**: Deployed the Streamlit App at AWS Cloud Service - EC2
