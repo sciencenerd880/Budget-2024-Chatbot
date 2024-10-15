@@ -162,13 +162,17 @@ For ease of access, you may visit the url here http://47.129.145.115:8501/.
 ### 7.1 Prerequisites
 - AWS EC2 instance running Ubuntu (ensure security group allows inbound traffic to port e.g. 8501).
 - SSH access to the EC2 instance.
-- AWS EC2 Instance to be created
+- AWS EC2 Instance to be created (on Ubuntu OS)
 
 ### 7.2 Connect to Your EC2 Instance
 First, connect to your EC2 instance using SSH:
 
 ```bash
+chmod 400 your-key.pem
 ssh -i /path/to/your-key.pem ubuntu@<your-ec2-public-ip>
+
+e.g. 
+ssh -i "stapp.pem" ubuntu@ec2-47-129-145-115.ap-southeast-1.compute.amazonaws.com
 ```
 
 ### 7.3 Udate and Install Required Packages/Systems
@@ -191,9 +195,21 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 7.6 Install all the Project Dependencies
+### 7.6 Install all the Project Dependencies 
 ```bash
 pip3 install -r requirements.txt
+```
+
+### 7.7 Creation of .env file
+```bash
+nano .env
+OPENAI_API_KEY = xxxx
+```
+To save and exit, 
+```bash
+ctrl + o  -> tosave
+[enter]
+ctrl + x -> to exit
 ```
 
 ### Running the application is as easy as
