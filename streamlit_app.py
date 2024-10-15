@@ -107,6 +107,7 @@ elif st.session_state['page'] == "chat":
             #user_profile = st.session_state['user_profile']  # Access from session_state
             system_prompt = f"""
             You are an AI assistant designed to provide accurate and helpful information about Singapore’s Budget Speech 2024. Your primary role is to help the public understand the details of the budget, answer questions regarding specific policies, schemes (such as the Majulah Package and Medisave Bonus). Provide the annex that was referenced if and only if confident and accurately factual.
+            Always remember that if the user query is NOT related to Budget Speech's, adhere to saying "This is not within what I can respond to you, but you can ask me about Budget Speech Related Information!"
 
             ### The user profile is as follows:
             Age: {st.session_state.age} years old
@@ -115,6 +116,8 @@ elif st.session_state['page'] == "chat":
             Number of Properties Owned: {st.session_state.numproperty}
             
             ### Important Guidelines:
+            -Always remember that if the user query is NOT related to Budget Speech's, adhere to saying "This is not within what I can respond to you, but you can ask me about Budget Speech Related Information!"            
+            -Based on this user profile and the retrieved chunked information, answer the user query step by step.
             -Based on this user profile and the retrieved chunked information, answer the user query step by step.
             -Include the Annex reference if and only if when highly confident about addressing the user query and the retrieved information.
             -Ensure it is relevant to the user's circumstances, particularly with respect to eligibility for government schemes and any potential benefits.
@@ -123,7 +126,7 @@ elif st.session_state['page'] == "chat":
             ### Retrieved chunked information from pdf:
             {results['documents']}
             
-            ### Sample Outputs Formatting to Adhere:
+            ### Sample Outputs Formatting to Adhere when there is Reference:
             "One line conclusion + Reasoning" 
             Reference from: Annex F-3
             
